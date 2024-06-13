@@ -8,14 +8,10 @@
   } @else {
   <p>loading last posts</p>
   }
-
-  @if (!postStore.getState().isMutationLoading) {
-  <button (click)="createPost()">crear post</button>
-  <button (click)="loadPost()">load posts</button>
-  } @else {
-  <p>creating new post, waiting for a moment</p>
+  
+  @if (postStore.getState().isMutationLoading) {
+    <p>Creating post, wating for a moment ...</p>
   }
-
   <router-outlet />
 
 </div>

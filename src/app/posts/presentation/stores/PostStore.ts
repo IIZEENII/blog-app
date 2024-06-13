@@ -4,7 +4,7 @@ import { GetAllPostsUsecase } from "../../application/GetAllPosts";
 import { CreatePostUsecase } from "../../application/CreatePost";
 import { Post } from "../../domain/Post";
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class PostsStore extends AsyncStore<Post> {
     constructor(
         private createPostUsecase: CreatePostUsecase,

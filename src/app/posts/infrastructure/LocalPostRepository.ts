@@ -33,7 +33,7 @@ export class LocalPostRepository implements PostRepository {
             setTimeout(() => {
                 this.posts.push(post);
                 resolve(Either.right(undefined));
-            }, 1500)
+            }, 2000)
         })
     }
 

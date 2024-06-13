@@ -1,0 +1,14 @@
+.filled-button {
+    font-size: .875rem;
+    padding: 0 .75rem;
+    display: flex;
+    align-items: center;
+    border-radius: 2rem;
+    gap: .25rem;
+    height: 3.25rem;
+    background: var(--primary, #1B5FC6);
+
+    &--mini {
+        height: 2.25rem;
+    }
+}
