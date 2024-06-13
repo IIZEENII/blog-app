@@ -1,0 +1,21 @@
+<navbar />
+<div class="app">
+
+  @if (!postStore.getState().isLoading) {
+  @for (post of postStore.getState().data; track $index) {
+  <post-card [post]="post" />
+  }
+  } @else {
+  <p>loading last posts</p>
+  }
+
+  @if (!postStore.getState().isMutationLoading) {
+  <button (click)="createPost()">crear post</button>
+  <button (click)="loadPost()">load posts</button>
+  } @else {
+  <p>creating new post, waiting for a moment</p>
+  }
+
+  <router-outlet />
+
+</div>
