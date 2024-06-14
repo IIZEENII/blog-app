@@ -8,9 +8,15 @@
       [control]="formGroup.controls.password"
       placeholder="Password"
     />
-    <filled-button type="submit" [isFullWidth]="true"> Sign In</filled-button>
+    <filled-button type="submit" [onClick]="signIn" [isFullWidth]="true">
+      Sign In</filled-button
+    >
   </form>
   <a routerLink="/auth/sign-up" class="sign-in__link">
     <span>Dot not have an account? Sign Up</span>
   </a>
+  @if (accountStore.getState().hasError) {
+    <p>{{ accountStore.getState().errorMessage }}</p>
+  }
 </div>
+

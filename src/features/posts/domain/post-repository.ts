@@ -6,6 +6,6 @@ export interface PostRepository {
     getAll(): Promise<Either<Failure, Post[]>>;
     getById(id: number): Promise<Either<Failure, Post>>;
     create(post: Post): Promise<Either<Failure, void>>;
-    update(id: number): Promise<Either<Failure, void>>;
+    update(id: number, post: Post): Promise<Either<Failure, void>>;
     delete(id: number): Promise<Either<Failure, void>>;
 }

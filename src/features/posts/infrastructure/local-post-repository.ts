@@ -37,7 +37,7 @@ export class LocalPostRepository implements PostRepository {
         })
     }
 
-    update(id: number): Promise<Either<Failure, void>> {
+    update(id: number, post: Post): Promise<Either<Failure, void>> {
         throw new Error("Method not implemented." + id);
     }
 
