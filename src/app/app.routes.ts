@@ -18,7 +18,7 @@ export const routes: Routes = [
   },
   {
     path: 'submit',
-    loadComponent: () => import('./posts/pages/create-post/submit.component'),
+    loadComponent: () => import('./posts/pages/submit/submit.component'),
     pathMatch: 'full',
   },
 ];
