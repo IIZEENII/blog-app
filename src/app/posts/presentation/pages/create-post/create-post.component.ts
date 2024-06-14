@@ -10,7 +10,7 @@ import { RouterOutlet } from "@angular/router";
         <nav>
             <span class="icon-close"></span>
             <h1>Create Post</h1>
-            <filled-button>
+            <filled-button [isMini]="true" >
                 Publish
             </filled-button>
         </nav>

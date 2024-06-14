@@ -19,5 +19,5 @@ import { Component, Input, input } from "@angular/core";
 export class FilledButtonComponent {
     type = input<string>('button');
     isMini = input(false);
-    @Input({ required: true }) onClick!: () => void;
+    @Input() onClick: () => void = () => {};
 }
