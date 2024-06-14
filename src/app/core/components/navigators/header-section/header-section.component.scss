@@ -1,0 +1,18 @@
+.header-section {
+  background: var(--base);
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  border-bottom: thin solid var(--gray-50);
+  height: 56px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.825rem;
+
+  &__left-action {
+    display: flex;
+    gap: 1rem;
+  }
+}

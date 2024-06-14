@@ -15,7 +15,7 @@ export class PostsStore extends AsyncStore<Post> {
 
     async create(post: Post) {
         this.setMutationAsLoading()
-        const posts = [...this.getState().data, post];
+        const posts = [post, ...this.getState().data];
         const result = await this.createPostUsecase.call(post);
         result.fold(
             (failure) => this.setAsFailed(failure.message),

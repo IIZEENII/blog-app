@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { SearchBarComponent } from '../search-bar/search-bar.component';
+import { SearchBarComponent } from '../../search-bar/search-bar.component';
 import { RouterLink } from '@angular/router';
-import { FilledLinkButtonComponent } from '../buttons/filled-link-button/filled-link-button.component';
-import { AvatarComponent } from '../../../user/components/avatar/avatar.component';
+import { FilledLinkButtonComponent } from '../../buttons/filled-link-button/filled-link-button.component';
+import { AvatarComponent } from '../../../../user/components/avatar/avatar.component';
 
 @Component({
   standalone: true,

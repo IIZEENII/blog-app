@@ -1,0 +1,11 @@
+.text-box {
+    width: 100%;
+    min-height: 8rem;
+    background: var(--contrast);
+    padding: 1rem;
+    border-radius: 0.5rem;
+
+    &:focus {
+      outline: thin solid var(--gray-50);
+    }
+}

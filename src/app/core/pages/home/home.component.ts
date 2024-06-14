@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavbarComponent } from '../../components/navbar/navbar.component';
+import { NavbarComponent } from '../../components/navigators/navbar/navbar.component';
 import { PostsStore } from '../../../../features/posts/infrastructure/stores/post-store';
 import { PostCardComponent } from '../../../posts/components/post-card/post-card.component';
 

@@ -6,9 +6,8 @@ export const routes: Routes = [
     redirectTo: 'posts',
     pathMatch: 'full',
   },
-  // TODO: remove layout from app and create own layout with children routes nested
   {
-    path: 'posts',
+    path: 'home',
     loadComponent: () => import('./core/pages/home/home.component'),
   },
   {
