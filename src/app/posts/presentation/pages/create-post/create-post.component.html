@@ -1,0 +1,15 @@
+<nav>
+  <div class="navbar__left-action">
+    <span class="icon-close"></span>
+    <h1>Create Post</h1>
+  </div>
+  <filled-button type="submit" [isMini]="true" [onClick]="onSubmit">
+    Publish
+  </filled-button>
+</nav>
+<main class="app-container">
+  <form class="post-form" [formGroup]="createPostForm">
+    <input type="text" placeholder="Title" formControlName="title" />
+    <textarea  formControlName="content" placeholder="body text (optional)"></textarea>
+  </form>
+</main>

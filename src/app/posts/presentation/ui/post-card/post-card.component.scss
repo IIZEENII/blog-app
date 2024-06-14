@@ -2,13 +2,13 @@
     display: flex;
     flex-direction: column;
     gap: .5rem;
-    padding: 1rem .825rem .5rem;
+    padding: 1rem .5rem .5rem;
     max-width: 41.375rem;
     min-width: 22.5rem;
     background-color: #18181A;
     color: white;
     border-bottom: thin solid #4E4E4E;
-    
+
     &__autor {
         display: flex;
         gap: .75rem;

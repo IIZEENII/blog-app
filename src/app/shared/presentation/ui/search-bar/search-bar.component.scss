@@ -1,17 +1,10 @@
 .search-bar {
-    min-width: 8.5rem;
     width: 100%;
-    padding: 0 var(--sm) 0 3rem;
-    border-radius: var(--xxl);
     outline: none;
     height: 2.5rem;
-    background: var(--constrast, #272727);
 
     &::placeholder {
         color: var(--gray);
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
     }
 
     &:placeholder-shown {
@@ -20,14 +13,13 @@
         overflow: hidden;
     }
 
-    &__wrapper {
-        max-width: 54rem;
-        position: relative;
-    }
-
-    &__icon {
-        position: absolute;
-        top: 24%;
-        left: var(--sm);
+    &__container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0 1rem;
+        border-radius: var(--xxl);
+        background: var(--contrast);
     }
 }

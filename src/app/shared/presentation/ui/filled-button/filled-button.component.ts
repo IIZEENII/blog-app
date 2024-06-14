@@ -14,7 +14,6 @@ import { Component, Input, input } from "@angular/core";
         </button>
     `,
     styleUrl: "filled-button.component.scss",
-    imports: [],
 })
 export class FilledButtonComponent {
     type = input<string>('button');

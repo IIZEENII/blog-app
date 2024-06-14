@@ -6,9 +6,9 @@ import { FilledButtonComponent } from "../filled-button/filled-button.component"
   standalone: true,
   selector: 'search-bar',
   template: `
-    <div class="search-bar__wrapper">
+    <div class="search-bar__container">
+      <span class="icon-search"></span>
       <input class="search-bar" placeholder="search" type="search" />
-      <span class="icon-search search-bar__icon"></span>
     </div>
   `,
   styleUrl: 'search-bar.component.scss',

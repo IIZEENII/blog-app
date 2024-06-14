@@ -1,0 +1,11 @@
+<navbar />
+<main class="app-container">
+    @if (postStore.getState().isMutationLoading) {
+    <p>Creating post, wating for a moment ...</p>
+    } @if (!postStore.getState().isLoading) { @for (post of
+    postStore.getState().data; track $index) {
+    <post-card [post]="post" />
+    } } @else {
+    <p>loading last posts</p>
+    }
+</main>
