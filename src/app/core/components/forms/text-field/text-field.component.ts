@@ -10,11 +10,13 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
     <input
       [formControl]="control()"
       class="text-field"
-      type="text"
-      placeholder="Title"
+      [type]="type()"
+      [placeholder]="placeholder()"
     />
   `,
 })
 export class TextFieldComponent {
+  type = input('text');
+  placeholder = input('text');
   control = input(new FormControl());
 }

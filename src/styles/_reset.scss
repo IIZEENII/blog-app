@@ -98,8 +98,8 @@ label {
     font-family: inherit;
     font-size: inherit;
     // -webkit-hyphens: auto;
-    -ms-hyphens: auto;
-    hyphens: auto;
+    // -ms-hyphens: auto;
+    // hyphens: auto;
     background-color: transparent;
     color: inherit;
     display: block;
@@ -126,7 +126,6 @@ body {
     background-color: var(--base, #18181A);
     min-height: 100vh;
     font-size: 100%;
-    // font-family: var(--font-primary);
     line-height: normal;
     -webkit-hyphens: auto;
     -ms-hyphens: auto;

@@ -1,0 +1,16 @@
+<div class="sign-in__container">
+  <h1 class="sign-in__title">Sign In</h1>
+
+  <form [formGroup]="formGroup" class="sign-in">
+    <text-field [control]="formGroup.controls.email" placeholder="Email" />
+    <text-field
+      type="password"
+      [control]="formGroup.controls.password"
+      placeholder="Password"
+    />
+    <filled-button type="submit" [isFullWidth]="true"> Sign In</filled-button>
+  </form>
+  <a routerLink="/auth/sign-up" class="sign-in__link">
+    <span>Dot not have an account? Sign Up</span>
+  </a>
+</div>

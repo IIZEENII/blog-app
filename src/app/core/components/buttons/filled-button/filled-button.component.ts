@@ -5,6 +5,7 @@ import { Component, Input, input } from "@angular/core";
     selector: 'filled-button',
     template: `
         <button
+            [class.filled-button--full]="isFullWidth()"
             [class.filled-button--mini]="isMini()"
             [type]="type()"
             class="filled-button"
@@ -16,6 +17,7 @@ import { Component, Input, input } from "@angular/core";
     styleUrl: "filled-button.component.scss",
 })
 export class FilledButtonComponent {
+    isFullWidth = input(false);
     type = input<string>('button');
     isMini = input(false);
     @Input() onClick: () => void = () => {};
