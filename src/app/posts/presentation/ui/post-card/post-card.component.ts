@@ -1,7 +1,7 @@
 import { Component, input } from "@angular/core";
-import { AvatarComponent } from "../../../../users/presentation/ui/Avatar";
-import { Post } from "../../../domain/Post";
-import { OutlineButtonComponent } from "../../../../shared/presentation/ui/OutlineButton/_index";
+import { AvatarComponent } from "../../../../users/presentation/ui/avatar/avatar.component";
+import { Post } from "../../../domain/post";
+import { OutlineButtonComponent } from "../../../../shared/presentation/ui/outline-button/outline-button.component";
 
 @Component({
     standalone: true,
@@ -10,12 +10,12 @@ import { OutlineButtonComponent } from "../../../../shared/presentation/ui/Outli
         <article class="post-card">
             <div class="post-card__header">
                 <div class="post-card__autor">
-                    <avatar 
-                        [avatar]="post().autor.avatar!"  
+                    <avatar
+                        [avatar]="post().autor.avatar!"
                         [username]="post().autor.username"
                      />
                     <span>Adrian Mis</span>
-                    
+
                 </div>
                 <span class="icon-dots"></span>
             </div>
@@ -28,9 +28,9 @@ import { OutlineButtonComponent } from "../../../../shared/presentation/ui/Outli
                 <span class="icon-comment post-card__icon"></span>
                 Comments
             </outline-button>
-        </article>  
+        </article>
     `,
-    styleUrl: "_index.scss",
+    styleUrl: "post-card.component.scss",
     imports: [AvatarComponent, OutlineButtonComponent],
 })
 export class PostCardComponent {

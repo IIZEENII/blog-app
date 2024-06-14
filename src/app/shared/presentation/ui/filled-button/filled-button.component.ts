@@ -4,16 +4,16 @@ import { Component, Input, input } from "@angular/core";
     standalone: true,
     selector: 'filled-button',
     template: `
-        <button 
-            [class.filled-button--mini]="isMini()" 
-            [type]="type()" 
+        <button
+            [class.filled-button--mini]="isMini()"
+            [type]="type()"
             class="filled-button"
             (click)="onClick()"
         >
             <ng-content />
         </button>
     `,
-    styleUrl: "FilledButton.component.scss",
+    styleUrl: "filled-button.component.scss",
     imports: [],
 })
 export class FilledButtonComponent {

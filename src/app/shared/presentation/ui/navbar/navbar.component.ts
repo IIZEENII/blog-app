@@ -1,9 +1,9 @@
 import { Component, OnInit, inject } from "@angular/core";
-import { AvatarComponent } from "../../../../users/presentation/ui/Avatar";
-import { FilledButtonComponent } from "../FilledButton/FilledButton.component";
-import { PostsStore } from "../../../../posts/presentation/stores/PostStore";
-import { SearchBarComponent } from "../SearchBar/SearchBar.component";
-import { RouterLink, RouterOutlet } from "@angular/router";
+import { AvatarComponent } from "../../../../users/presentation/ui/avatar/avatar.component";
+import { FilledButtonComponent } from "../filled-button/filled-button.component";
+import { PostsStore } from "../../../../posts/presentation/stores/post-store";
+import { SearchBarComponent } from "../search-bar/search-bar.component";
+import { RouterLink } from "@angular/router";
 
 @Component({
     standalone: true,
@@ -15,14 +15,14 @@ import { RouterLink, RouterOutlet } from "@angular/router";
                 Create <span class="icon-add"></span>
             </filled-button>
             <a routerLink="/account">
-                <avatar 
-                    avatar="https://citizensketcher.com/wp-content/uploads/2022/05/thispersondoesnotexist_43-1.jpg" 
-                    username="Adrian Mis"  
+                <avatar
+                    avatar="https://citizensketcher.com/wp-content/uploads/2022/05/thispersondoesnotexist_43-1.jpg"
+                    username="Adrian Mis"
                 />
             </a>
         </nav>
     `,
-    styleUrl: "_index.scss",
+    styleUrl: "navbar.component.scss",
     imports: [AvatarComponent, FilledButtonComponent, SearchBarComponent, RouterLink],
     providers: []
 })

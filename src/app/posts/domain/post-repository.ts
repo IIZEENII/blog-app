@@ -1,6 +1,6 @@
-import { Either } from "../../shared/domain/Either";
-import { Failure } from "../../shared/domain/failures/Failure";
-import { Post } from "./Post";
+import { Either } from "../../shared/domain/either";
+import { Failure } from "../../shared/domain/failures/failure";
+import { Post } from "./post";
 
 export interface PostRepository {
     getAll(): Promise<Either<Failure, Post[]>>;

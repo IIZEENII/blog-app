@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
-import { AsyncStore } from "../../../shared/presentation/stores/AsyncStore";
-import { GetAllPostsUsecase } from "../../application/GetAllPosts";
-import { CreatePostUsecase } from "../../application/CreatePost";
-import { Post } from "../../domain/Post";
+import { AsyncStore } from "../../../shared/presentation/stores/async-store";
+import { GetAllPostsUsecase } from "../../application/get-all-posts";
+import { CreatePostUsecase } from "../../application/create-post";
+import { Post } from "../../domain/post";
 
 @Injectable({ providedIn: 'root' })
 export class PostsStore extends AsyncStore<Post> {
@@ -19,7 +19,7 @@ export class PostsStore extends AsyncStore<Post> {
         const result = await this.createPostUsecase.call(post);
         result.fold(
             (failure) => this.setAsFailed(failure.message),
-            (_) => this.setAsSuccess(posts),
+            () => this.setAsSuccess(posts),
         );
     }
 

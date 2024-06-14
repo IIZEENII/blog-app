@@ -1,4 +1,4 @@
-import { User } from "../../users/domain/User";
+import { User } from "../../users/domain/user";
 
 export interface Post {
     id: number;

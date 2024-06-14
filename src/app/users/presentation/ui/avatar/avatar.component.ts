@@ -6,7 +6,7 @@ import { Component, input } from "@angular/core";
     template: `
         <img class="avatar" [src]="avatar()" [alt]="username()" />
     `,
-    styleUrl: "_index.scss",
+    styleUrl: "avatar.component.scss",
     imports: [],
 })
 export class AvatarComponent {

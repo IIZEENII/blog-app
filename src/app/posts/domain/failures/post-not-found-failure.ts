@@ -1,4 +1,4 @@
-import { Failure } from "../../../shared/domain/failures/Failure";
+import { Failure } from "../../../shared/domain/failures/failure";
 
 export class PostNotFoundFailure extends Failure {
     constructor() {

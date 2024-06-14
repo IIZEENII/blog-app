@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
-import { PostsStore } from "../../stores/PostStore";
-import { FilledButtonComponent } from "../../../../shared/presentation/ui/FilledButton/FilledButton.component";
+import { PostsStore } from "../../stores/post-store";
+import { FilledButtonComponent } from "../../../../shared/presentation/ui/filled-button/filled-button.component";
 import { RouterOutlet } from "@angular/router";
 
 @Component({
@@ -10,7 +10,7 @@ import { RouterOutlet } from "@angular/router";
         <nav>
             <span class="icon-close"></span>
             <h1>Create Post</h1>
-            <filled-button [isMini]="true" [onClick]="load">
+            <filled-button>
                 Publish
             </filled-button>
         </nav>
@@ -18,12 +18,6 @@ import { RouterOutlet } from "@angular/router";
         <input type="text" placeholder="body text (optional)">
     `
 })
-export default class CreatePostPage {
+export default class CreatePostComponent {
     constructor(public postStore: PostsStore) { }
-
-    ngOnInit(): void {
-        this.postStore.getAll();
-    }
-
-    load() {}
 }
