@@ -3,4 +3,13 @@
     height: 2.375rem;
     border-radius: 2rem;
     border: thin solid #9B9B9B;
+    font-size: var(--sm);
+    display: flex;
+    gap: var(--mc);
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        background: var(--contrast);
+    }
 }

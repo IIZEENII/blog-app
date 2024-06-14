@@ -8,19 +8,26 @@ import { OutlineButtonComponent } from "../../../../shared/presentation/ui/Outli
     selector: 'post-card',
     template: `
         <article class="post-card">
-            <div class="post-card__autor">
-                <avatar 
-                    [avatar]="post().autor.avatar!"  
-                    [username]="post().autor.username"
-                 />
-                <span>Adrian Mis</span>
+            <div class="post-card__header">
+                <div class="post-card__autor">
+                    <avatar 
+                        [avatar]="post().autor.avatar!"  
+                        [username]="post().autor.username"
+                     />
+                    <span>Adrian Mis</span>
+                    
+                </div>
+                <span class="icon-dots"></span>
             </div>
             <div class="post-card__body">
-                <h5>{{ post().title }}</h5>
-                <p> {{ post().content }}</p>
+                <h5 class="post-card__title">{{ post().title }}</h5>
+                <p class="post-card__content"> {{ post().content }}</p>
             </div>
-            <img [src]="post().mediaURL" [alt]="post().title">
-            <outline-button text="comments" />
+            <img class="post-card__media" [src]="post().mediaURL" [alt]="post().title">
+            <outline-button>
+                <span class="icon-comment post-card__icon"></span>
+                Comments
+            </outline-button>
         </article>  
     `,
     styleUrl: "_index.scss",
