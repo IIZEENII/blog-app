@@ -1,0 +1,19 @@
+.profile__tabs {
+  border-bottom: thin solid var(--gray-50);
+  display: flex;
+  gap: 2rem;
+  position: sticky;
+  top: 3.5rem;
+  width: 100%;
+  background: var(--base);
+  height: 3.5rem;
+  justify-content: center;
+}
+
+.profile__tabs-container {
+  padding: 1rem;
+  display: flex;
+  gap: 2em;
+  max-width: 70rem;
+  width: 100%;
+}

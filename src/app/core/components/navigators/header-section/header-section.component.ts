@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
 import { FilledButtonComponent } from '../../buttons/filled-button/filled-button.component';
 import { Location } from '@angular/common';
 
@@ -8,7 +8,7 @@ import { Location } from '@angular/common';
   imports: [FilledButtonComponent],
   styleUrl: 'header-section.component.scss',
   template: `
-    <nav class="header-section">
+    <nav class="header-section" [class.header-section--ghost]="isGhost()">
       <div class="header-section__left-action">
         <span (click)="goToBack()" class="icon-close"></span>
         <h1>{{ headerName }}</h1>
@@ -20,6 +20,7 @@ import { Location } from '@angular/common';
   `,
 })
 export class HeaderSectionComponent {
+  isGhost = input(false);
   @Input({ required: true }) action!: () => void;
   @Input({ required: true }) headerName!: string;
   @Input({ required: true }) actionName!: string;

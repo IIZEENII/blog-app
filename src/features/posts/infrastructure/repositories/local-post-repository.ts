@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
-import { Either } from "../../shared/domain/either";
-import { Failure } from "../../shared/domain/failures/failure";
-import { Post } from "../domain/post";
-import { PostRepository } from "../domain/post-repository";
-import { PostNotFoundFailure } from "../domain/failures/post-not-found-failure";
+import { Either } from "../../../shared/domain/either";
+import { Failure } from "../../../shared/domain/failures/failure";
+import { Post } from "../../domain/post";
+import { PostRepository } from "../../domain/post-repository";
+import { PostNotFoundFailure } from "../../domain/failures/post-not-found-failure";
 
 @Injectable()
 export class LocalPostRepository implements PostRepository {

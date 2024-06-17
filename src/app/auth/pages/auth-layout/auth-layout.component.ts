@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { LocalStorageAccountRepository } from '../../../../features/auth/infrastructure/local-storage-account-repository';
-import { CreateAccountUsecase } from '../../../../features/auth/application/create-account';
-import { GetAccountByIdUsecase } from '../../../../features/auth/application/get-account-by-id';
-import { AccountStore } from '../../../../features/auth/infrastructure/account-store';
-import { SignInAccountUsecase } from '../../../../features/auth/application/sign-in-account';
+import { CreateAccountUsecase } from '@features/users/application/create-account';
+import { GetAccountByIdUsecase } from '@features/users/application/get-account-by-id';
+import { SignInAccountUsecase } from '@features/users/application/sign-in-account';
+import { AccountStore } from '@features/users/infrastructure/account-store';
+import { ApiUserRepository } from '@features/users/infrastructure/api-user-repository';
+import { LocalStorageAccountRepository } from '@features/users/infrastructure/local-storage-account-repository';
 
 @Component({
   standalone: true,
   imports: [RouterOutlet],
   providers: [
     LocalStorageAccountRepository,
+    ApiUserRepository,
     CreateAccountUsecase,
     GetAccountByIdUsecase,
     SignInAccountUsecase,

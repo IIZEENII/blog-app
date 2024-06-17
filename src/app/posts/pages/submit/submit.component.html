@@ -7,5 +7,6 @@
   <form class="post-form" [formGroup]="createPostForm">
     <text-field [control]="createPostForm.controls.title" />
     <text-box [control]="createPostForm.controls.content" />
+    <input (change)="onChnage($event)" placeholder="file" type="file"  formControlName="file"/>
   </form>
 </main>

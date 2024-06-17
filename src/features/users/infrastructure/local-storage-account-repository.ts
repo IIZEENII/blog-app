@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Either } from '../../shared/domain/either';
 import { Failure } from '../../shared/domain/failures/failure';
-import { AccountRepository } from '../domain/account-repository';
-import { Account } from '../domain/account';
-import { AccountNotFoundFailure } from '../domain/failures/account-not-found-failure';
+import { AccountRepository } from '../domain/respositories/account-repository';
+import { Account } from '../domain/entities/account';
+import { NotFoundFailure } from '../../shared/domain/failures/not-found-failure';
 import { InvalidAccountCredentialsFailure } from '../domain/failures/invalid-account-credentials-failure';
 
 @Injectable()
@@ -11,8 +11,8 @@ export class LocalStorageAccountRepository implements AccountRepository {
   private readonly STORAGE_KEY = 'account';
 
   private loadAccounts(): Account[] {
-    const postsJson = localStorage.getItem(this.STORAGE_KEY);
-    return postsJson ? JSON.parse(postsJson) : [];
+    const accountsJson = localStorage.getItem(this.STORAGE_KEY);
+    return accountsJson ? JSON.parse(accountsJson) : [];
   }
 
   private saveAccounts(accounts: Account[]): void {
@@ -28,7 +28,7 @@ export class LocalStorageAccountRepository implements AccountRepository {
         );
 
         if (!accountFound) {
-          resolve(Either.left(new AccountNotFoundFailure()));
+          resolve(Either.left(new NotFoundFailure()));
           return;
         }
 
@@ -58,7 +58,7 @@ export class LocalStorageAccountRepository implements AccountRepository {
       setTimeout(() => {
         const accounts = this.loadAccounts();
         const account = accounts.find((account) => account.email == email);
-        if (!account) resolve(Either.left(new AccountNotFoundFailure()));
+        if (!account) resolve(Either.left(new NotFoundFailure()));
         else resolve(Either.right(account));
       }, 1500);
     });

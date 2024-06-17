@@ -37,4 +37,9 @@
         color: var(--gray);
         font-weight: 100;
     }
+
+    &__avatar-wrapper {
+      width: 2rem;
+      height: 2rem;
+    }
 }

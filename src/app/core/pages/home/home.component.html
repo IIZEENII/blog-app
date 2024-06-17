@@ -8,4 +8,8 @@
     } } @else {
     <p>loading last posts</p>
     }
+
+    @if (postStore.getState().hasError) {
+      <p>{{ postStore.getState().errorMessage }}</p>
+    }
 </main>

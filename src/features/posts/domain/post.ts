@@ -1,9 +1,9 @@
-import { User } from "../../users/domain/user";
+import { User } from "../../users/domain/entities/user";
 
 export interface Post {
     id: number;
     title: string;
     content: string;
-    autor: User;
+    user: User;
     mediaURL?: string;
 }

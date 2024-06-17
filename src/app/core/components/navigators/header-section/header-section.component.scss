@@ -1,4 +1,5 @@
 .header-section {
+  z-index: 1000;
   background: var(--base);
   padding: 1rem;
   position: fixed;
@@ -14,5 +15,10 @@
   &__left-action {
     display: flex;
     gap: 1rem;
+  }
+
+  &--ghost {
+    background: none;
+    border: none;
   }
 }

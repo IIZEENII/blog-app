@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AsyncStore } from '../../shared/infrastructure/stores/async-store';
-import { Account } from '../domain/account';
+import { Account } from '../domain/entities/account';
 import { CreateAccountUsecase } from '../application/create-account';
 import { GetAccountByIdUsecase } from '../application/get-account-by-id';
 import { SignInAccountUsecase } from '../application/sign-in-account';

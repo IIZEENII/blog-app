@@ -1,0 +1,31 @@
+
+.profile-header {
+  margin: auto;
+  max-width: 70rem;
+  padding: 4.5rem 0.5rem 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  &__banner {
+    height: 10rem;
+  }
+
+  &__profile {
+    background: var(--base);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__profile-info {
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+
+    & div {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

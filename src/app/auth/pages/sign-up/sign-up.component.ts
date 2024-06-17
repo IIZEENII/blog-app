@@ -3,7 +3,7 @@ import { TextFieldComponent } from '../../../core/components/forms/text-field/te
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FilledButtonComponent } from '../../../core/components/buttons/filled-button/filled-button.component';
 import { Router, RouterLink } from '@angular/router';
-import { AccountStore } from '../../../../features/auth/infrastructure/account-store';
+import { AccountStore } from '../../../../features/users/infrastructure/account-store';
 
 @Component({
   standalone: true,

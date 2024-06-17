@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { TextFieldComponent } from '../../../core/components/forms/text-field/text-field.component';
+import { TextFieldComponent } from '@app/core/components/forms/text-field/text-field.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { FilledButtonComponent } from '../../../core/components/buttons/filled-button/filled-button.component';
+import { FilledButtonComponent } from '@app/core/components/buttons/filled-button/filled-button.component';
 import { Router, RouterLink } from '@angular/router';
-import { AccountStore } from '../../../../features/auth/infrastructure/account-store';
+import { AccountStore } from '@features/users/infrastructure/account-store';
 
 @Component({
   standalone: true,
@@ -22,10 +22,7 @@ export default class SignInComponent implements OnInit {
     password: new FormControl(''),
   });
 
-  constructor(
-    private router: Router,
-    public accountStore: AccountStore
-  ) {}
+  constructor(private router: Router, public accountStore: AccountStore) {}
 
   ngOnInit(): void {
     this.signIn = this.signIn.bind(this);
@@ -34,11 +31,11 @@ export default class SignInComponent implements OnInit {
   async signIn() {
     await this.accountStore.signIn({
       email: this.formGroup.value.email!,
-      password: this.formGroup.value.password!
+      password: this.formGroup.value.password!,
     });
 
-    if(!this.accountStore.getState().hasError) {
-      this.router.navigate(['home'])
+    if (!this.accountStore.getState().hasError) {
+      this.router.navigate(['home']);
     }
   }
 }
