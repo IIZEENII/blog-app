@@ -15,8 +15,8 @@
   <a routerLink="/auth/sign-up" class="sign-in__link">
     <span>Dot not have an account? Sign Up</span>
   </a>
-  @if (accountStore.getState().hasError) {
-    <p>{{ accountStore.getState().errorMessage }}</p>
+  @if (authStore.getState().hasError) {
+    <p>{{ authStore.getState().errorMessage }}</p>
   }
 </div>
 

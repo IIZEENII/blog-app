@@ -1,7 +1,7 @@
-import { Failure } from "../../../shared/domain/failures/failure";
+import { Failure } from '@features/shared/domain/failures/failure';
 
 export class PostNotFoundFailure extends Failure {
-    constructor() {
-        super('post not found');
-    }
+  constructor() {
+    super('post not found');
+  }
 }

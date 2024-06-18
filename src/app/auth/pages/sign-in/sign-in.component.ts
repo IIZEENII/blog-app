@@ -3,7 +3,7 @@ import { TextFieldComponent } from '@app/core/components/forms/text-field/text-f
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FilledButtonComponent } from '@app/core/components/buttons/filled-button/filled-button.component';
 import { Router, RouterLink } from '@angular/router';
-import { AccountStore } from '@features/users/infrastructure/account-store';
+import { AuthStore } from '@features/users/infrastructure/auth-store';
 
 @Component({
   standalone: true,
@@ -22,19 +22,19 @@ export default class SignInComponent implements OnInit {
     password: new FormControl(''),
   });
 
-  constructor(private router: Router, public accountStore: AccountStore) {}
+  constructor(private router: Router, public authStore: AuthStore) {}
 
   ngOnInit(): void {
     this.signIn = this.signIn.bind(this);
   }
 
   async signIn() {
-    await this.accountStore.signIn({
+    await this.authStore.signIn({
       email: this.formGroup.value.email!,
       password: this.formGroup.value.password!,
     });
 
-    if (!this.accountStore.getState().hasError) {
+    if (!this.authStore.getState().hasError) {
       this.router.navigate(['home']);
     }
   }

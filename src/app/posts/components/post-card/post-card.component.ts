@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 import { AvatarComponent } from '../../../user/components/avatar/avatar.component';
 import { OutlineButtonComponent } from '../../../core/components/buttons/outline-button/outline-button.component';
-import { Post } from '../../../../features/posts/domain/post';
+import { Post } from '../../../../features/posts/domain/entities/post';
 
 @Component({
   standalone: true,
@@ -23,10 +23,10 @@ import { Post } from '../../../../features/posts/domain/post';
         <h5 class="post-card__title">{{ post().title }}</h5>
         <p class="post-card__content">{{ post().content }}</p>
       </div>
-      @if (post().mediaURL) {
+      @if (post().multimediaURL) {
         <img
           class="post-card__media"
-          [src]="post().mediaURL"
+          [src]="post().multimediaURL"
           [alt]="post().title"
         />
       }

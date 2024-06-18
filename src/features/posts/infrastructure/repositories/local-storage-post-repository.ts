@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Either } from '../../../shared/domain/either';
-import { Failure } from '../../../shared/domain/failures/failure';
-import { Post } from '../../domain/post';
-import { PostRepository } from '../../domain/post-repository';
-import { PostNotFoundFailure } from '../../domain/failures/post-not-found-failure';
+import { Post } from '@features/posts/domain/entities/post';
+import { PostNotFoundFailure } from '@features/posts/domain/failures/post-not-found-failure';
+import { PostParams, PostRepository } from '@features/posts/domain/repositories/post-repository';
+import { Either } from '@features/shared/domain/either';
+import { Failure } from '@features/shared/domain/failures/failure';
 
 @Injectable()
 export class LocalStoragePostRepository implements PostRepository {
@@ -27,45 +27,18 @@ export class LocalStoragePostRepository implements PostRepository {
     });
   }
 
-  getById(id: number): Promise<Either<Failure, Post>> {
+  save(params: PostParams): Promise<Either<Failure, void>> {
     return new Promise((resolve) => {
       setTimeout(() => {
         const posts = this.loadPosts();
-        const post = posts.find((post) => post.id === id);
-        if (!post) resolve(Either.left(new PostNotFoundFailure()));
-        else resolve(Either.right(post));
-      }, 1500);
-    });
-  }
-
-  create(post: Post): Promise<Either<Failure, void>> {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        const posts = this.loadPosts();
-        posts.push(post);
+        posts.push();
         this.savePosts(posts);
         resolve(Either.right(undefined));
       }, 2000);
     });
   }
 
-  update(id: number, post: Post): Promise<Either<Failure, void>> {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        const posts = this.loadPosts();
-        const index = posts.findIndex((post) => post.id === id);
-        if (index === -1) {
-          resolve(Either.left(new PostNotFoundFailure()));
-        } else {
-          posts[index] = post;
-          this.savePosts(posts);
-          resolve(Either.right(undefined));
-        }
-      }, 2000);
-    });
-  }
-
-  delete(id: number): Promise<Either<Failure, void>> {
+  deleteById(id: string): Promise<Either<Failure, void>> {
     return new Promise((resolve) => {
       setTimeout(() => {
         const posts = this.loadPosts();

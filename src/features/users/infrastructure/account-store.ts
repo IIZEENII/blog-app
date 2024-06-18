@@ -1,46 +1,23 @@
-import { Injectable } from '@angular/core';
-import { AsyncStore } from '../../shared/infrastructure/stores/async-store';
-import { Account } from '../domain/entities/account';
-import { CreateAccountUsecase } from '../application/create-account';
-import { GetAccountByIdUsecase } from '../application/get-account-by-id';
-import { SignInAccountUsecase } from '../application/sign-in-account';
+import { Injectable, inject } from '@angular/core';
+import { SingleAsyncStore } from '@features/shared/infrastructure/stores/single-async-store';
+import { User } from '../domain/user';
+import { UserRepository } from '../domain/respositories/user-repository';
+import { ApiAccountRepository } from './api-account-repository';
 
 @Injectable({ providedIn: 'root' })
-export class AccountStore extends AsyncStore<Account> {
-  constructor(
-    private createAccountUsecase: CreateAccountUsecase,
-    private signInAccountUsecase: SignInAccountUsecase,
-    private getAccountByIdUsecase: GetAccountByIdUsecase
-  ) {
+export class AccountStore extends SingleAsyncStore<User> {
+  private userRepository: UserRepository = inject(ApiAccountRepository);
+
+  constructor() {
     super();
   }
 
-  async signIn(account: Account) {
-    this.setMutationAsLoading();
-    const accounts = [account, ...this.getState().data];
-    const result = await this.signInAccountUsecase.call(account);
-    result.fold(
-      (failure) => this.setAsFailed(failure.message),
-      () => this.setAsSuccess(accounts)
-    );
-  }
-
-  async create(account: Account) {
-    this.setMutationAsLoading();
-    const accounts = [account, ...this.getState().data];
-    const result = await this.createAccountUsecase.call(account);
-    result.fold(
-      (failure) => this.setAsFailed(failure.message),
-      () => this.setAsSuccess(accounts)
-    );
-  }
-
-  async getByEmail(email: string) {
+  async getAccount() {
     this.setAsLoading();
-    const result = await this.getAccountByIdUsecase.call(email);
+    const result = await this.userRepository.getAccount();
     result.fold(
       (failure) => this.setAsFailed(failure.message),
-      (account) => this.setAsSuccess([account])
+      (account) => this.setAsSuccess(account),
     );
   }
 }

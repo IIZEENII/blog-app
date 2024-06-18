@@ -1,22 +1,18 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CreateAccountUsecase } from '@features/users/application/create-account';
-import { GetAccountByIdUsecase } from '@features/users/application/get-account-by-id';
 import { SignInAccountUsecase } from '@features/users/application/sign-in-account';
-import { AccountStore } from '@features/users/infrastructure/account-store';
-import { ApiUserRepository } from '@features/users/infrastructure/api-user-repository';
-import { LocalStorageAccountRepository } from '@features/users/infrastructure/local-storage-account-repository';
+import { SignUpAccountUsecase } from '@features/users/application/sign-up-account';
+import { ApiAuthRepository } from '@features/users/infrastructure/api-auth-repository';
+import { AuthStore } from '@features/users/infrastructure/auth-store';
 
 @Component({
   standalone: true,
   imports: [RouterOutlet],
   providers: [
-    LocalStorageAccountRepository,
-    ApiUserRepository,
-    CreateAccountUsecase,
-    GetAccountByIdUsecase,
+    ApiAuthRepository,
     SignInAccountUsecase,
-    AccountStore,
+    SignUpAccountUsecase,
+    AuthStore,
   ],
   styleUrl: 'auth-layout.component.scss',
   template: `

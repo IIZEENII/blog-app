@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AsyncStore } from '../../../shared/infrastructure/stores/async-store';
 import { GetAllPostsUsecase } from '../../application/get-all-posts';
 import { CreatePostUsecase } from '../../application/create-post';
-import { Post } from '../../domain/post';
+import { Post } from '../../domain/entities/post';
 
 @Injectable({ providedIn: 'root' })
 export class PostsStore extends AsyncStore<Post> {
