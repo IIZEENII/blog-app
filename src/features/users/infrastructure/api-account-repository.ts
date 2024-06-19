@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpStatusCode } from '@angular/common/http';
 import {
   UserParams,
-  UserRepository,
-} from '../domain/respositories/user-repository';
+  AccountRepository,
+} from '../domain/respositories/account-repository';
 import { Either } from '@features/shared/domain/either';
 import { Failure } from '@features/shared/domain/failures/failure';
 import { User } from '../domain/user';
@@ -11,12 +11,12 @@ import { BadRequestFailure } from '@features/shared/domain/failures/bad-request-
 import { AccountNotExistsFailure } from '../domain/failures/account-not-exists-failure';
 
 @Injectable({ providedIn: 'root' })
-export class ApiAccountRepository implements UserRepository {
-  private readonly account_api_url = 'http://localhost:8080/api/v1/account';
+export class ApiAccountRepository implements AccountRepository {
+  private ACCOUNT_API_URL = 'http://localhost:8080/api/v1/account';
   private readonly token = localStorage.getItem('token');
 
-  async getAccount(): Promise<Either<Failure, User>> {
-    const response = await fetch(this.account_api_url, {
+  async get(): Promise<Either<Failure, User>> {
+    const response = await fetch(this.ACCOUNT_API_URL, {
       headers: {
         Authorization: `Bearer ${this.token}`,
       },
@@ -34,7 +34,7 @@ export class ApiAccountRepository implements UserRepository {
   }
 
   async update(params: UserParams): Promise<Either<Failure, void>> {
-    const response = await fetch(this.account_api_url, {
+    const response = await fetch(this.ACCOUNT_API_URL, {
       method: 'put',
       headers: {
         'Content-Type': 'application/json',

@@ -7,7 +7,7 @@ export interface UserParams {
   password: string;
 }
 
-export interface UserRepository {
-  getAccount(): Promise<Either<Failure, User>>;
+export interface AccountRepository {
+  get(): Promise<Either<Failure, User>>;
   update(params: UserParams): Promise<Either<Failure, void>>;
 }
