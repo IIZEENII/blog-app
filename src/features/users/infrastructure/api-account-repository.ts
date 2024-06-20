@@ -15,7 +15,7 @@ export class ApiAccountRepository implements AccountRepository {
   private ACCOUNT_API_URL = 'http://localhost:8080/api/v1/account';
   private readonly token = localStorage.getItem('token');
 
-  async get(): Promise<Either<Failure, User>> {
+  async getByToken(): Promise<Either<Failure, User>> {
     const response = await fetch(this.ACCOUNT_API_URL, {
       headers: {
         Authorization: `Bearer ${this.token}`,
@@ -33,7 +33,7 @@ export class ApiAccountRepository implements AccountRepository {
     return Either.right(await response.json());
   }
 
-  async update(params: UserParams): Promise<Either<Failure, void>> {
+  async updateByToken(params: UserParams): Promise<Either<Failure, void>> {
     const response = await fetch(this.ACCOUNT_API_URL, {
       method: 'put',
       headers: {

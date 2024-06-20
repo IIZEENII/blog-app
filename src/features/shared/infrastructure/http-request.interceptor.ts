@@ -17,6 +17,10 @@ export const httpRequestInterceptor: HttpInterceptorFn = (req, next) => {
 export const AuthGuard: CanActivateFn = () => {
   const authStore = inject(AuthStore);
   const router = inject(Router);
-  router.navigate(['/auth/sign-in']);
+
+  if(!authStore.isAuth()) {
+    router.navigate(['/auth/sign-in']);
+  }
+
   return authStore.isAuth();
 }

@@ -8,8 +8,8 @@ export interface CommentParams {
   postId: string;
 }
 
-export interface PostRepository {
+export interface CommentRepository {
   save(params: CommentParams): Promise<Either<Failure, void>>;
-  getAllByPostId(): Promise<Either<Failure, Comment[]>>;
+  getAllByPostId(id: string): Promise<Either<Failure, Comment[]>>;
   deleteById(id: string): Promise<Either<Failure, void>>;
 }

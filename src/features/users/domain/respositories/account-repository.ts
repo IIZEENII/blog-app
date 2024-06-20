@@ -8,6 +8,6 @@ export interface UserParams {
 }
 
 export interface AccountRepository {
-  get(): Promise<Either<Failure, User>>;
-  update(params: UserParams): Promise<Either<Failure, void>>;
+  getByToken(): Promise<Either<Failure, User>>;
+  updateByToken(params: UserParams): Promise<Either<Failure, void>>;
 }
